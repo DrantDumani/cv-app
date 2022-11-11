@@ -8,12 +8,30 @@ class CVForm extends Component {
         super(props)
     }
 
+    displayFields = (arr) => {
+
+    }
+
     render(){
+        const {personalInfo, onChangePersonal, experienceArr, educationArr} = this.props
+
         return (
             <form id="cvForm">
-                <Personal />
-                <Experience />
-                <Education />
+                <Personal personal={personalInfo} handleChange={onChangePersonal}/>
+                <ul className="experience-list">
+                    {experienceArr.map((el) => { return (
+                        <li key={el.id}>
+                            <Experience experience={el}/>
+                        </li>)
+                    })}
+                </ul>
+                <ul className="education-list">
+                    {educationArr.map((el) => { return (
+                        <li key={el.id}>
+                            <Education education={el}/>
+                        </li>)
+                    })}
+                </ul>
             </form>
         )
     }

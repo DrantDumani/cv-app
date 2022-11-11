@@ -17,7 +17,8 @@ class App extends Component {
         title: "",
         phoneNum:"",
         address: "",
-        email: ""
+        email: "",
+        fieldIds: ["firstName", "lastName", "title", "phoneNum", "address", "email"]
       },
       education: {
         university: "",
@@ -59,7 +60,7 @@ class App extends Component {
   }
 
   onChangePersonal = (e) => {
-    const field = e.target.name;
+    const field = e.target.id;
     this.setState(prevState => ({
       personal: {
         ...prevState.personal,
@@ -75,15 +76,15 @@ class App extends Component {
 
   render(){
     const {personal, education, experience, experienceList, educationList, 
-      isBeingEdited, addEducatuon, addExperience, toggleEdit} = this.state; 
+      isBeingEdited } = this.state; 
 
     return (
       <div className="content">
         <Header />
         {isBeingEdited ? 
         <CVForm personalInfo={personal} education={education} experience={experience}
-        experienceArr={experienceList} educationArr={educationList} addExp={addExperience}
-        addEdu={addEducatuon} toggleEdit={toggleEdit}/>
+        experienceArr={experienceList} educationArr={educationList} addExp={this.addExperience}
+        addEdu={this.addEducatuon} toggleEdit={this.toggleEdit} onChangePersonal={this.onChangePersonal}/>
         :
         <DisplayCV/>
         }
