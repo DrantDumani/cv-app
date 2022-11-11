@@ -10,11 +10,11 @@ class CVForm extends Component {
 
     render(){
         return (
-            <div>
+            <form id="cvForm">
                 <Personal />
                 <Experience />
                 <Education />
-            </div>
+            </form>
         )
     }
 }
