@@ -13,7 +13,8 @@ class CVForm extends Component {
     }
 
     render(){
-        const {personalInfo, onChangePersonal, experienceArr, educationArr} = this.props
+        const {personalInfo, onChangePersonal, onChangeExperience, onChangeEducation, experienceArr, educationArr,
+        addEdu, addExp, delEdu, delExp} = this.props
 
         return (
             <form id="cvForm">
@@ -21,17 +22,19 @@ class CVForm extends Component {
                 <ul className="experience-list">
                     {experienceArr.map((el) => { return (
                         <li key={el.id}>
-                            <Experience experience={el}/>
+                            <Experience experience={el} handleChange={onChangeExperience} handleDelete={delExp}/>
                         </li>)
                     })}
                 </ul>
+                <button type="button" className="add-to-exp" onClick={addExp}>Add Experience</button>
                 <ul className="education-list">
                     {educationArr.map((el) => { return (
                         <li key={el.id}>
-                            <Education education={el}/>
+                            <Education education={el} handleChange={onChangeEducation} handleDelete={delEdu}/>
                         </li>)
                     })}
                 </ul>
+                <button type="button" className="add-to-edu" onClick={addEdu}>Add Education</button>
             </form>
         )
     }
