@@ -27,6 +27,7 @@ class App extends Component {
         from: "",
         to: "",
         id: uniqid(),
+        fieldIds: ["university", "location", "degree", "from", "to"]
       },
       educationList: [],
       experience: {
@@ -34,7 +35,8 @@ class App extends Component {
         employer: "",
         from: "",
         to: "",
-        id: uniqid()
+        id: uniqid(),
+        fieldIds: ["position", "employer", "from", "to"]
       },
       experienceList: [],
       isBeingEdited: true,
@@ -49,14 +51,36 @@ class App extends Component {
 
   addEducatuon = () => {
     this.setState({
-      educationList: this.state.educationList.concat(this.state.education)
+      educationList: this.state.educationList.concat(this.state.education),
+      education: {...this.state.education,
+        id: uniqid()
+      }
     })
   }
 
   addExperience = () => {
     this.setState({
-      experienceList: this.state.experienceList.concat(this.state.experience)
+      experienceList: this.state.experienceList.concat(this.state.experience),
+      experience: {...this.state.experience,
+        id: uniqid()
+      }
     })
+  }
+
+  delEducation = (id) => {
+    this.setState((prevState) => ({
+      educationList: prevState.educationList.filter((edu) => {
+        return edu.id !== id
+      })
+    }))
+  }
+
+  delExperience = (id) => {
+    this.setState((prevState) => ({
+      experienceList: prevState.experienceList.filter((exp) => {
+        return exp.id !== id
+      })
+    }))
   }
 
   onChangePersonal = (e) => {
@@ -66,6 +90,30 @@ class App extends Component {
         ...prevState.personal,
         [field]: e.target.value
       }
+    }))
+  }
+
+  onChangeExperience = (e, id) => {
+    const field = e.target.id.split(id)[0]
+    this.setState((prevState) => ({
+      experienceList: prevState.experienceList.map((exp) =>{
+        if (exp.id === id) {
+          exp[field] = e.target.value
+        }
+        return exp
+      })
+    }))
+  }
+
+  onChangeEducation = (e, id) => {
+    const field = e.target.id.split(id)[0]
+    this.setState((prevState) => ({
+      educationList: prevState.educationList.map((exp) =>{
+        if (exp.id === id) {
+          exp[field] = e.target.value
+        }
+        return exp
+      })
     }))
   }
 
@@ -84,7 +132,9 @@ class App extends Component {
         {isBeingEdited ? 
         <CVForm personalInfo={personal} education={education} experience={experience}
         experienceArr={experienceList} educationArr={educationList} addExp={this.addExperience}
-        addEdu={this.addEducatuon} toggleEdit={this.toggleEdit} onChangePersonal={this.onChangePersonal}/>
+        addEdu={this.addEducatuon} toggleEdit={this.toggleEdit} onChangePersonal={this.onChangePersonal}
+        onChangeExperience={this.onChangeExperience} onChangeEducation={this.onChangeEducation}
+        delExp={this.delExperience} delEdu={this.delEducation}/>
         :
         <DisplayCV/>
         }
