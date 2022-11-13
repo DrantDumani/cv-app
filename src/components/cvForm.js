@@ -24,7 +24,13 @@ class CVForm extends Component {
     } = this.props;
 
     return (
-      <form id="cvForm">
+      <form
+        id="cvForm"
+        onSubmit={(e) => {
+          e.preventDefault();
+          toggleEdit();
+        }}
+      >
         <Personal personal={personalInfo} handleChange={onChangePersonal} />
         <ul className="experience-list">
           {experienceArr.map((el) => {
@@ -58,14 +64,7 @@ class CVForm extends Component {
         <button type="button" className="add-to-edu" onClick={addEdu}>
           Add Education
         </button>
-        <button
-          type="submit"
-          className="submit-CV"
-          onClick={(e) => {
-            e.preventDefault();
-            toggleEdit();
-          }}
-        >
+        <button type="submit" className="submit-CV">
           Submit
         </button>
       </form>
