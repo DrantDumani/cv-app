@@ -126,14 +126,8 @@ class App extends Component {
   }
 
   render() {
-    const {
-      personal,
-      education,
-      experience,
-      experienceList,
-      educationList,
-      isBeingEdited,
-    } = this.state;
+    const { personal, experienceList, educationList, isBeingEdited } =
+      this.state;
 
     return (
       <div className="content">
@@ -141,8 +135,6 @@ class App extends Component {
         {isBeingEdited ? (
           <CVForm
             personalInfo={personal}
-            education={education}
-            experience={experience}
             experienceArr={experienceList}
             educationArr={educationList}
             addExp={this.addExperience}

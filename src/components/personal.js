@@ -5,18 +5,6 @@ class Personal extends Component {
     super(props);
   }
 
-  // handleValidity = (e, propStr) => {
-  //   if (e.target.checkValidity()) {
-  //     this.setState({
-  //       [propStr]: true,
-  //     });
-  //   } else {
-  //     this.setState({
-  //       [propStr]: false,
-  //     });
-  //   }
-  // };
-
   render() {
     const { firstName, lastName, title, email, phoneNum, address, fieldIds } =
       this.props.personal;
