@@ -21,6 +21,7 @@ class Education extends Component {
             onChange={(e) => {
               handleChange(e, id);
             }}
+            required
           />
         </div>
         <div>
@@ -31,6 +32,7 @@ class Education extends Component {
             onChange={(e) => {
               handleChange(e, id);
             }}
+            required
           />
         </div>
         <div>
@@ -41,6 +43,7 @@ class Education extends Component {
             onChange={(e) => {
               handleChange(e, id);
             }}
+            required
           />
         </div>
         <div>
@@ -51,6 +54,7 @@ class Education extends Component {
             onChange={(e) => {
               handleChange(e, id);
             }}
+            required
           />
         </div>
         <div>
@@ -61,6 +65,7 @@ class Education extends Component {
             onChange={(e) => {
               handleChange(e, id);
             }}
+            required
           />
         </div>
         <button
