@@ -15,7 +15,12 @@ class Personal extends Component {
       <div>
         <div>
           <label htmlFor={firstNameId}>First Name: </label>
-          <input value={firstName} id={firstNameId} onChange={handleChange} />
+          <input
+            value={firstName}
+            id={firstNameId}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label htmlFor={lastNameId}>Last Name: </label>
