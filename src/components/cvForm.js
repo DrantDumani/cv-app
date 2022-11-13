@@ -14,7 +14,7 @@ class CVForm extends Component {
 
     render(){
         const {personalInfo, onChangePersonal, onChangeExperience, onChangeEducation, experienceArr, educationArr,
-        addEdu, addExp, delEdu, delExp} = this.props
+        addEdu, addExp, delEdu, delExp, toggleEdit} = this.props
 
         return (
             <form id="cvForm">
@@ -35,6 +35,9 @@ class CVForm extends Component {
                     })}
                 </ul>
                 <button type="button" className="add-to-edu" onClick={addEdu}>Add Education</button>
+                <button type="submit" className="submit-CV" onClick={(e) => {
+                    e.preventDefault()
+                    toggleEdit()}}>Submit</button>
             </form>
         )
     }

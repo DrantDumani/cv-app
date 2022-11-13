@@ -9,11 +9,30 @@ class DisplayCV extends Component {
     }
 
     render(){
+        const {personalInfo, educationArr, experienceArr, toggleEdit} = this.props
+
         return (
             <div className="cv-display">
-                <DisplayPersonal/>
-                <DisplayExperience/>
-                <DisplayEducation/>
+                <DisplayPersonal personalInfo={personalInfo}/>
+                <ul>
+                    {experienceArr.map((el) => {
+                        return (
+                            <li key={el.id}>
+                                <DisplayExperience exp={el}/>
+                            </li>
+                        )
+                    })}
+                </ul>
+                <ul>
+                    {educationArr.map((el) => {
+                        return (
+                            <li key={el.id}>
+                                <DisplayEducation edu={el}/>
+                            </li>
+                        )
+                    })}
+                </ul>
+                <button onClick={toggleEdit}>Edit CV</button>
             </div>
         )
     }

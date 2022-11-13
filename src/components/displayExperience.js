@@ -6,7 +6,14 @@ class DisplayExperience extends Component {
     }
 
     render(){
-        return <p>This is just to display the info</p>
+        const {position, employer, from, to} = this.props.exp
+        return (
+            <div>
+                <p>{position}</p>
+                <p>{employer}</p>
+                <p>{from} - {to}</p>
+            </div>
+        )
     }
 }
 

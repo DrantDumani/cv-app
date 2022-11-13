@@ -136,7 +136,12 @@ class App extends Component {
         onChangeExperience={this.onChangeExperience} onChangeEducation={this.onChangeEducation}
         delExp={this.delExperience} delEdu={this.delEducation}/>
         :
-        <DisplayCV/>
+        <DisplayCV
+          personalInfo={personal}
+          experienceArr={experienceList}
+          educationArr={educationList}
+          toggleEdit={this.toggleEdit}
+        />
         }
         <Footer />
       </div>
