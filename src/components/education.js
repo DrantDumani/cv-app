@@ -22,6 +22,7 @@ class Education extends Component {
               handleChange(e, id);
             }}
             required
+            placeholder="List the school or course you were enrolled in"
           />
         </div>
         <div>
@@ -33,6 +34,7 @@ class Education extends Component {
               handleChange(e, id);
             }}
             required
+            placeholder="Location of the institution"
           />
         </div>
         <div>
@@ -44,6 +46,7 @@ class Education extends Component {
               handleChange(e, id);
             }}
             required
+            placeholder="Type of degree or certificate you obtained"
           />
         </div>
         <div>
@@ -55,6 +58,7 @@ class Education extends Component {
               handleChange(e, id);
             }}
             required
+            placeholder="Month and year you began the course"
           />
         </div>
         <div>
@@ -66,6 +70,7 @@ class Education extends Component {
               handleChange(e, id);
             }}
             required
+            placeholder="Month and year you completed your course"
           />
         </div>
         <button

@@ -22,6 +22,7 @@ class Experience extends Component {
               handleChange(e, id);
             }}
             required
+            placeholder="Position held"
           />
         </div>
         <div>
@@ -33,6 +34,7 @@ class Experience extends Component {
               handleChange(e, id);
             }}
             required
+            placeholder="Company name"
           />
         </div>
         <div>
@@ -44,6 +46,7 @@ class Experience extends Component {
               handleChange(e, id);
             }}
             required
+            placeholder="Month/Year you began working there"
           />
         </div>
         <div>
@@ -55,6 +58,7 @@ class Experience extends Component {
               handleChange(e, id);
             }}
             required
+            placeholder="Month/Year you resigned"
           />
         </div>
         <button

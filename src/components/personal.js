@@ -3,44 +3,35 @@ import React, { Component } from "react";
 class Personal extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      fNameValidity: true,
-      lNameValidity: true,
-      titleValidty: true,
-      addressValidity: true,
-      emailValidity: true,
-      phoneValidity: true,
-    };
   }
 
-  handleValidity = (e, propStr) => {
-    if (e.target.checkValidity()) {
-      this.setState({
-        [propStr]: true,
-      });
-    } else {
-      this.setState({
-        [propStr]: false,
-      });
-    }
-  };
+  // handleValidity = (e, propStr) => {
+  //   if (e.target.checkValidity()) {
+  //     this.setState({
+  //       [propStr]: true,
+  //     });
+  //   } else {
+  //     this.setState({
+  //       [propStr]: false,
+  //     });
+  //   }
+  // };
 
   render() {
+    const { firstName, lastName, title, email, phoneNum, address, fieldIds } =
+      this.props.personal;
+    const [firstNameId, lastNameId, titleId, phoneNumId, addressId, emailId] =
+      fieldIds;
+    const { handleChange, handleValidity, validityStates } = this.props;
+
     const {
       fNameValidity,
       lNameValidity,
       emailValidity,
       addressValidity,
-      titleValidty,
+      titleValidity,
       phoneValidity,
-    } = this.state;
-
-    const { firstName, lastName, title, email, phoneNum, address, fieldIds } =
-      this.props.personal;
-    const [firstNameId, lastNameId, titleId, phoneNumId, addressId, emailId] =
-      fieldIds;
-    const { handleChange } = this.props;
+    } = validityStates;
 
     return (
       <div>
@@ -52,8 +43,9 @@ class Personal extends Component {
             onChange={handleChange}
             required
             title="Please enter a first name"
+            placeholder="Billy"
             onBlur={(e) => {
-              this.handleValidity(e, "fNameValidity");
+              handleValidity(e, "fNameValidity");
             }}
           />
           {fNameValidity ? null : <p>Please enter a first name</p>}
@@ -66,15 +58,26 @@ class Personal extends Component {
             onChange={handleChange}
             required
             title="Please enter a last name"
+            placeholder="Bob Johns"
             onBlur={(e) => {
-              this.handleValidity(e, "lNameValidity");
+              handleValidity(e, "lNameValidity");
             }}
           />
           {lNameValidity ? null : <p>Please enter a last name</p>}
         </div>
         <div>
           <label htmlFor={titleId}>Title: </label>
-          <input value={title} id={titleId} onChange={handleChange} required />
+          <input
+            value={title}
+            id={titleId}
+            onChange={handleChange}
+            required
+            placeholder="Sr. Developer"
+            onBlur={(e) => {
+              handleValidity(e, "titleValidity");
+            }}
+          />
+          {titleValidity ? null : <p>Please enter a title</p>}
         </div>
         <div>
           <label htmlFor={emailId}>Email: </label>
@@ -84,7 +87,13 @@ class Personal extends Component {
             onChange={handleChange}
             type="email"
             required
+            title="Please enter a valid email address"
+            placeholder="name@example.com"
+            onBlur={(e) => {
+              handleValidity(e, "emailValidity");
+            }}
           />
+          {emailValidity ? null : <p>Please enter a valid email address</p>}
         </div>
         <div>
           <label htmlFor={addressId}>Address: </label>
@@ -93,7 +102,13 @@ class Personal extends Component {
             id={addressId}
             onChange={handleChange}
             required
+            title="Please enter an address"
+            placeholder="123 Fake Street"
+            onBlur={(e) => {
+              handleValidity(e, "addressValidity");
+            }}
           />
+          {addressValidity ? null : <p>Please enter an address</p>}
         </div>
         <div>
           <label htmlFor={phoneNumId}>Phone #: </label>
@@ -103,7 +118,12 @@ class Personal extends Component {
             onChange={handleChange}
             type="tel"
             required
+            placeholder="333-333-3333"
+            onBlur={(e) => {
+              handleValidity(e, "phoneValidity");
+            }}
           />
+          {phoneValidity ? null : <p>Please enter a contact number</p>}
         </div>
       </div>
     );

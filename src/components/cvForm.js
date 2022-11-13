@@ -6,7 +6,36 @@ import Personal from "./personal";
 class CVForm extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      validityStates: {
+        fNameValidity: true,
+        lNameValidity: true,
+        titleValidity: true,
+        addressValidity: true,
+        emailValidity: true,
+        phoneValidity: true,
+      },
+    };
   }
+
+  handleValidity = (e, propStr) => {
+    if (e.target.checkValidity()) {
+      this.setState((prevState) => ({
+        validityStates: {
+          ...this.state.validityStates,
+          [propStr]: true,
+        },
+      }));
+    } else {
+      this.setState({
+        validityStates: {
+          ...this.state.validityStates,
+          [propStr]: false,
+        },
+      });
+    }
+  };
 
   render() {
     const {
@@ -23,6 +52,8 @@ class CVForm extends Component {
       toggleEdit,
     } = this.props;
 
+    const { validityStates } = this.state;
+
     return (
       <form
         id="cvForm"
@@ -31,7 +62,12 @@ class CVForm extends Component {
           toggleEdit();
         }}
       >
-        <Personal personal={personalInfo} handleChange={onChangePersonal} />
+        <Personal
+          personal={personalInfo}
+          handleChange={onChangePersonal}
+          handleValidity={this.handleValidity}
+          validityStates={validityStates}
+        />
         <ul className="experience-list">
           {experienceArr.map((el) => {
             return (
