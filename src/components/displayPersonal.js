@@ -6,7 +6,17 @@ class DisplayPersonal extends Component {
     }
 
     render(){
-        return <p>This is just to display the info</p>
+        const {firstName, lastName, address, email, title, phoneNum, fieldIds} = this.props.personalInfo
+
+        return (
+            <div>
+                <h2>{firstName} {lastName}</h2>
+                <h3>{title}</h3>
+                <p>{address}</p>
+                <p>{email}</p>
+                <p>{phoneNum}</p>
+            </div>
+        )
     }
 }
 

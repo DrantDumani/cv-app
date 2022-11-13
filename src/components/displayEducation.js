@@ -6,7 +6,14 @@ class DisplayEducation extends Component {
     }
 
     render(){
-        return <p>This is just to display the info</p>
+        const {university, degree, location, from, to} = this.props.edu
+        return (
+            <div>
+                <p>{university}, {location}</p>
+                <p>{degree}</p>
+                <p>{from} - {to}</p>
+            </div>
+        )
     }
 }
 
