@@ -1,4 +1,15 @@
-.App {
+@use "./body";
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+main {
+  align-self: center;
+}
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +46,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styleSheets/personal.scss";
 
 class Personal extends Component {
   constructor(props) {
@@ -22,7 +23,8 @@ class Personal extends Component {
     } = validityStates;
 
     return (
-      <div>
+      <fieldset className="form-fieldset personal">
+        <legend>Personal</legend>
         <div>
           <label htmlFor={firstNameId}>First Name: </label>
           <input
@@ -113,7 +115,7 @@ class Personal extends Component {
           />
           {phoneValidity ? null : <p>Please enter a contact number</p>}
         </div>
-      </div>
+      </fieldset>
     );
   }
 }

@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+
+header {
+  background-color: #ffdc3f;
+  border-bottom: 2px solid #000;
+
+  h1 {
+    font-family: "Bebas Neue";
+    text-align: center;
+    font-size: 40px;
+    margin: 0;
+    padding: 3vh 0;
+  }
+}
