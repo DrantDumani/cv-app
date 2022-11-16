@@ -1,0 +1,5 @@
+@use "./formstyles";
+
+.personal {
+  @include formstyles.formStyle;
+}

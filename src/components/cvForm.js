@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Education from "./education";
 import Experience from "./experience";
 import Personal from "./personal";
+import "../styleSheets/cvForm.scss";
 
 class CVForm extends Component {
   constructor(props) {

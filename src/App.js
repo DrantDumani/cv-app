@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styleSheets/App.scss";
 import React, { Component } from "react";
 import Header from "./components/header";
 import CVForm from "./components/cvForm";
@@ -132,28 +132,30 @@ class App extends Component {
     return (
       <div className="content">
         <Header />
-        {isBeingEdited ? (
-          <CVForm
-            personalInfo={personal}
-            experienceArr={experienceList}
-            educationArr={educationList}
-            addExp={this.addExperience}
-            addEdu={this.addEducatuon}
-            toggleEdit={this.toggleEdit}
-            onChangePersonal={this.onChangePersonal}
-            onChangeExperience={this.onChangeExperience}
-            onChangeEducation={this.onChangeEducation}
-            delExp={this.delExperience}
-            delEdu={this.delEducation}
-          />
-        ) : (
-          <DisplayCV
-            personalInfo={personal}
-            experienceArr={experienceList}
-            educationArr={educationList}
-            toggleEdit={this.toggleEdit}
-          />
-        )}
+        <main>
+          {isBeingEdited ? (
+            <CVForm
+              personalInfo={personal}
+              experienceArr={experienceList}
+              educationArr={educationList}
+              addExp={this.addExperience}
+              addEdu={this.addEducatuon}
+              toggleEdit={this.toggleEdit}
+              onChangePersonal={this.onChangePersonal}
+              onChangeExperience={this.onChangeExperience}
+              onChangeEducation={this.onChangeEducation}
+              delExp={this.delExperience}
+              delEdu={this.delEducation}
+            />
+          ) : (
+            <DisplayCV
+              personalInfo={personal}
+              experienceArr={experienceList}
+              educationArr={educationList}
+              toggleEdit={this.toggleEdit}
+            />
+          )}
+        </main>
         <Footer />
       </div>
     );

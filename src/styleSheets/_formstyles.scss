@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+}
+
+@mixin formStyle($size: 18px, $color: #000) {
+  font-family: "Oswald";
+  color: $color;
+  font-size: $size;
+}

@@ -1,13 +1,18 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import "../styleSheets/header.scss";
 
 class Header extends Component {
-    constructor(){
-        super()
-    }
+  constructor() {
+    super();
+  }
 
-    render(){
-        return <h1>This is my CVForm</h1>
-    }
+  render() {
+    return (
+      <header>
+        <h1>React CV Creator</h1>
+      </header>
+    );
+  }
 }
 
-export default Header
+export default Header;
