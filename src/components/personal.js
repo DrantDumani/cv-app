@@ -7,10 +7,25 @@ class Personal extends Component {
   }
 
   render() {
-    const { firstName, lastName, title, email, phoneNum, address, fieldIds } =
-      this.props.personal;
-    const [firstNameId, lastNameId, titleId, phoneNumId, addressId, emailId] =
-      fieldIds;
+    const {
+      firstName,
+      lastName,
+      title,
+      email,
+      phoneNum,
+      address,
+      description,
+      fieldIds,
+    } = this.props.personal;
+    const [
+      firstNameId,
+      lastNameId,
+      titleId,
+      phoneNumId,
+      addressId,
+      emailId,
+      descriptionId,
+    ] = fieldIds;
     const { handleChange, handleValidity, validityStates } = this.props;
 
     const {
@@ -20,6 +35,7 @@ class Personal extends Component {
       addressValidity,
       titleValidity,
       phoneValidity,
+      descriptionValidity,
     } = validityStates;
 
     return (
@@ -124,6 +140,23 @@ class Personal extends Component {
           />
           {phoneValidity ? null : (
             <p className="validity-text">Please enter a contact number</p>
+          )}
+        </div>
+        <div className="label-field-pair">
+          <label htmlFor={descriptionId}>Description: </label>
+          <textarea
+            value={description}
+            id={descriptionId}
+            onChange={handleChange}
+            required
+            placeholder="Tell us about yourself in 500 characters or less"
+            maxLength={500}
+            onBlur={(e) => {
+              handleValidity(e, "descriptionValidity");
+            }}
+          ></textarea>
+          {descriptionValidity ? null : (
+            <p className="validity-text">Please type a description</p>
           )}
         </div>
       </div>
