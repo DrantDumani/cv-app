@@ -1,5 +1,5 @@
 @use "./mixins";
 
-.per-input-container {
+.edu-input-container {
   @include mixins.formComponent;
 }

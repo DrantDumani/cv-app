@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styleSheets/experience.scss";
 
 class Experience extends Component {
   constructor(props) {
@@ -12,8 +13,8 @@ class Experience extends Component {
     const [positionId, employerId, fromId, toId] = fieldIds;
 
     return (
-      <div>
-        <div>
+      <div className="exp-input-container">
+        <div className="label-field-pair">
           <label htmlFor={`${positionId}${id}`}>Position: </label>
           <input
             value={position}
@@ -25,7 +26,7 @@ class Experience extends Component {
             placeholder="Position held"
           />
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={`${employerId}${id}`}>Employer: </label>
           <input
             value={employer}
@@ -37,7 +38,7 @@ class Experience extends Component {
             placeholder="Company name"
           />
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={`${fromId}${id}`}>From: </label>
           <input
             value={from}
@@ -49,7 +50,7 @@ class Experience extends Component {
             placeholder="Month/Year you began working there"
           />
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={`${toId}${id}`}>To: </label>
           <input
             value={to}
@@ -62,6 +63,7 @@ class Experience extends Component {
           />
         </div>
         <button
+          className="form-btn"
           type="button"
           onClick={() => {
             handleDelete(id);
