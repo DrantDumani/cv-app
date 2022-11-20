@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DisplayEducation from "./displayEducation";
 import DisplayExperience from "./displayExperience";
 import DisplayPersonal from "./displayPersonal";
+import "../styleSheets/displayCV.scss";
 
 class DisplayCV extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class DisplayCV extends Component {
       this.props;
 
     return (
-      <div className="cv-display">
+      <div id="cv-display">
         <DisplayPersonal personalInfo={personalInfo} />
         <ul>
           {experienceArr.map((el) => {

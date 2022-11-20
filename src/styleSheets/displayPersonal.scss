@@ -1,0 +1,20 @@
+.personal-display {
+  background-color: #131313;
+  color: #fff;
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-between;
+  padding: 5vh 2vw;
+
+  p {
+    margin: 0;
+  }
+}
+
+.name {
+  font-size: 40px;
+}
+
+.position {
+  font-size: 24px;
+}
