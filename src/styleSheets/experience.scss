@@ -1,5 +1,5 @@
 @use "./mixins";
 
-.per-input-container {
+.exp-input-container {
   @include mixins.formComponent;
 }

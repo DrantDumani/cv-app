@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styleSheets/education.scss";
 
 class Education extends Component {
   constructor(props) {
@@ -12,8 +13,8 @@ class Education extends Component {
     const [universityId, locationId, degreeId, fromId, toId] = fieldIds;
 
     return (
-      <div>
-        <div>
+      <div className="edu-input-container">
+        <div className="label-field-pair">
           <label htmlFor={`${universityId}${id}`}>University: </label>
           <input
             value={university}
@@ -25,7 +26,7 @@ class Education extends Component {
             placeholder="List the school or course you were enrolled in"
           />
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={`${locationId}${id}`}>Location: </label>
           <input
             value={location}
@@ -37,7 +38,7 @@ class Education extends Component {
             placeholder="Location of the institution"
           />
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={`${degreeId}${id}`}>Degree: </label>
           <input
             value={degree}
@@ -49,7 +50,7 @@ class Education extends Component {
             placeholder="Type of degree or certificate you obtained"
           />
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={`${fromId}${id}`}>From: </label>
           <input
             value={from}
@@ -61,7 +62,7 @@ class Education extends Component {
             placeholder="Month and year you began the course"
           />
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={`${toId}${id}`}>To: </label>
           <input
             value={to}
@@ -74,6 +75,7 @@ class Education extends Component {
           />
         </div>
         <button
+          className="form-btn"
           type="button"
           onClick={() => {
             handleDelete(id);

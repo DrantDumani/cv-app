@@ -63,45 +63,54 @@ class CVForm extends Component {
           toggleEdit();
         }}
       >
-        <Personal
-          personal={personalInfo}
-          handleChange={onChangePersonal}
-          handleValidity={this.handleValidity}
-          validityStates={validityStates}
-        />
-        <ul className="experience-list">
-          {experienceArr.map((el) => {
-            return (
-              <li key={el.id}>
-                <Experience
-                  experience={el}
-                  handleChange={onChangeExperience}
-                  handleDelete={delExp}
-                />
-              </li>
-            );
-          })}
-        </ul>
-        <button type="button" className="add-to-exp" onClick={addExp}>
-          Add Experience
-        </button>
-        <ul className="education-list">
-          {educationArr.map((el) => {
-            return (
-              <li key={el.id}>
-                <Education
-                  education={el}
-                  handleChange={onChangeEducation}
-                  handleDelete={delEdu}
-                />
-              </li>
-            );
-          })}
-        </ul>
-        <button type="button" className="add-to-edu" onClick={addEdu}>
-          Add Education
-        </button>
-        <button type="submit" className="submit-CV">
+        <fieldset className="form-fieldset">
+          <legend className="personal-legend">Personal</legend>
+          <Personal
+            personal={personalInfo}
+            handleChange={onChangePersonal}
+            handleValidity={this.handleValidity}
+            validityStates={validityStates}
+          />
+        </fieldset>
+        <fieldset className="form-fieldset">
+          <legend className="experience-legend">Experience</legend>
+          <ul className="experience-list form-list">
+            {experienceArr.map((el) => {
+              return (
+                <li key={el.id}>
+                  <Experience
+                    experience={el}
+                    handleChange={onChangeExperience}
+                    handleDelete={delExp}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+          <button type="button" className="add-to-exp" onClick={addExp}>
+            Add Experience
+          </button>
+        </fieldset>
+        <fieldset className="form-fieldset">
+          <legend className="education-legend">Education</legend>
+          <ul className="education-list form-list">
+            {educationArr.map((el) => {
+              return (
+                <li key={el.id}>
+                  <Education
+                    education={el}
+                    handleChange={onChangeEducation}
+                    handleDelete={delEdu}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+          <button type="button" className="add-to-edu" onClick={addEdu}>
+            Add Education
+          </button>
+        </fieldset>
+        <button type="submit" id="submit-CV">
           Submit
         </button>
       </form>

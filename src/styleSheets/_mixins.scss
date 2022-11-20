@@ -1,0 +1,47 @@
+@mixin formLegend($color: #000) {
+  font-size: 32px;
+  color: $color;
+}
+
+@mixin formBtn($bg-color: #5c4c05, $hoverColor: #292100) {
+  background-color: $bg-color;
+  border: 2px solid #806900;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 24px;
+  color: #fff;
+
+  &:hover,
+  &:active {
+    background-color: $hoverColor;
+  }
+}
+
+@mixin formComponent {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .label-field-pair {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+
+    .validity-text {
+      grid-column: 1 / span 2;
+      font-size: 14px;
+      font-style: italic;
+      color: #9c0000;
+      margin: 0;
+    }
+
+    input {
+      font-family: inherit;
+      font-size: inherit;
+    }
+  }
+
+  .form-btn {
+    @include formBtn;
+  }
+}

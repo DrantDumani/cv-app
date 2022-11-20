@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+footer {
+  $color: #f1f1f1;
+
+  font-family: "Roboto-Bold";
+  color: $color;
+  background-color: #131313;
+  text-align: center;
+
+  .svg-icon {
+    vertical-align: text-top;
+  }
+
+  .svg-icon > path {
+    fill: $color;
+  }
+
+  .svg-icon > path:hover {
+    fill: #b5b5b5;
+  }
+}

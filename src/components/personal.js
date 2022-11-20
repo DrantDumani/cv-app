@@ -23,9 +23,8 @@ class Personal extends Component {
     } = validityStates;
 
     return (
-      <fieldset className="form-fieldset personal">
-        <legend>Personal</legend>
-        <div>
+      <div className="per-input-container">
+        <div className="label-field-pair">
           <label htmlFor={firstNameId}>First Name: </label>
           <input
             value={firstName}
@@ -38,9 +37,11 @@ class Personal extends Component {
               handleValidity(e, "fNameValidity");
             }}
           />
-          {fNameValidity ? null : <p>Please enter a first name</p>}
+          {fNameValidity ? null : (
+            <p className="validity-text">Please enter a first name</p>
+          )}
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={lastNameId}>Last Name: </label>
           <input
             value={lastName}
@@ -53,9 +54,11 @@ class Personal extends Component {
               handleValidity(e, "lNameValidity");
             }}
           />
-          {lNameValidity ? null : <p>Please enter a last name</p>}
+          {lNameValidity ? null : (
+            <p className="validity-text">Please enter a last name</p>
+          )}
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={titleId}>Title: </label>
           <input
             value={title}
@@ -67,9 +70,11 @@ class Personal extends Component {
               handleValidity(e, "titleValidity");
             }}
           />
-          {titleValidity ? null : <p>Please enter a title</p>}
+          {titleValidity ? null : (
+            <p className="validity-text">Please enter a title</p>
+          )}
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={emailId}>Email: </label>
           <input
             value={email}
@@ -83,9 +88,11 @@ class Personal extends Component {
               handleValidity(e, "emailValidity");
             }}
           />
-          {emailValidity ? null : <p>Please enter a valid email address</p>}
+          {emailValidity ? null : (
+            <p className="validity-text">Please enter a valid email address</p>
+          )}
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={addressId}>Address: </label>
           <input
             value={address}
@@ -98,9 +105,11 @@ class Personal extends Component {
               handleValidity(e, "addressValidity");
             }}
           />
-          {addressValidity ? null : <p>Please enter an address</p>}
+          {addressValidity ? null : (
+            <p className="validity-text">Please enter an address</p>
+          )}
         </div>
-        <div>
+        <div className="label-field-pair">
           <label htmlFor={phoneNumId}>Phone #: </label>
           <input
             value={phoneNum}
@@ -113,9 +122,11 @@ class Personal extends Component {
               handleValidity(e, "phoneValidity");
             }}
           />
-          {phoneValidity ? null : <p>Please enter a contact number</p>}
+          {phoneValidity ? null : (
+            <p className="validity-text">Please enter a contact number</p>
+          )}
         </div>
-      </fieldset>
+      </div>
     );
   }
 }

@@ -1,0 +1,50 @@
+@use "./mixins";
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+}
+
+#cvForm {
+  font-family: "Oswald";
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.personal-legend {
+  @include mixins.formLegend($color: #004e01);
+}
+
+.experience-legend {
+  @include mixins.formLegend($color: #650000);
+}
+
+.education-legend {
+  @include mixins.formLegend($color: #002365);
+}
+
+.form-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding-bottom: 10px;
+  }
+}
+
+.add-to-exp,
+.add-to-edu {
+  @include mixins.formBtn;
+}
+
+#submit-CV {
+  @include mixins.formBtn($bg-color: #000);
+}
