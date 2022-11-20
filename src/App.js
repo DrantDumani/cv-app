@@ -18,6 +18,7 @@ class App extends Component {
         phoneNum: "",
         address: "",
         email: "",
+        description: "",
         fieldIds: [
           "firstName",
           "lastName",
@@ -25,6 +26,7 @@ class App extends Component {
           "phoneNum",
           "address",
           "email",
+          "description",
         ],
       },
       education: {

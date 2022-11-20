@@ -16,6 +16,7 @@ class CVForm extends Component {
         addressValidity: true,
         emailValidity: true,
         phoneValidity: true,
+        descriptionValidity: true,
       },
     };
   }
