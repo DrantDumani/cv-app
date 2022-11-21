@@ -7,12 +7,14 @@ class DisplayExperience extends Component {
   }
 
   render() {
-    const { position, employer, from, to } = this.props.exp;
+    const { position, employer, location, from, to } = this.props.exp;
     return (
       <div className="exp-section">
         <div className="exp-info">
           <p className="bolded-text position-text">{position}</p>
-          <p className="employer-text">{employer}</p>
+          <p className="employer-text">
+            {employer}, {location}
+          </p>
         </div>
         <div className="time-period-info">
           <p>

@@ -8,9 +8,9 @@ class Experience extends Component {
 
   render() {
     const { handleChange, handleDelete } = this.props;
-    const { position, employer, from, to, id, fieldIds } =
+    const { position, employer, location, from, to, id, fieldIds } =
       this.props.experience;
-    const [positionId, employerId, fromId, toId] = fieldIds;
+    const [positionId, employerId, locationId, fromId, toId] = fieldIds;
 
     return (
       <div className="exp-input-container">
@@ -36,6 +36,18 @@ class Experience extends Component {
             }}
             required
             placeholder="Company name"
+          />
+        </div>
+        <div className="label-field-pair">
+          <label htmlFor={`${locationId}${id}`}>Location: </label>
+          <input
+            value={location}
+            id={`${locationId}${id}`}
+            onChange={(e) => {
+              handleChange(e, id);
+            }}
+            required
+            placeholder="Company location"
           />
         </div>
         <div className="label-field-pair">

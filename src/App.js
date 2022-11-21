@@ -42,10 +42,11 @@ class App extends Component {
       experience: {
         position: "",
         employer: "",
+        location: "",
         from: "",
         to: "",
         id: uniqid(),
-        fieldIds: ["position", "employer", "from", "to"],
+        fieldIds: ["position", "employer", "location", "from", "to"],
       },
       experienceList: [],
       isBeingEdited: true,
