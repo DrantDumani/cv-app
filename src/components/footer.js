@@ -18,7 +18,7 @@ class Footer extends Component {
             rel="noreferrer"
           >
             <svg
-              class="svg-icon"
+              className="svg-icon"
               width="16px"
               height="16px"
               viewBox="0 0 32 32"
