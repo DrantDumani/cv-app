@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/cv-app/static/css/main.5e25e039.css",
-    "main.js": "/cv-app/static/js/main.7bbb8956.js",
+    "main.css": "/cv-app/static/css/main.f465c2ae.css",
+    "main.js": "/cv-app/static/js/main.cdf470a9.js",
     "static/media/EBGaramond-VariableFont_wght.ttf": "/cv-app/static/media/EBGaramond-VariableFont_wght.baa0e0cf79395becf7d7.ttf",
     "static/media/Roboto-Bold.ttf": "/cv-app/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "static/media/Oswald-VariableFont_wght.ttf": "/cv-app/static/media/Oswald-VariableFont_wght.46d7853f0185f6bf0c93.ttf",
     "static/media/BebasNeue-Regular.ttf": "/cv-app/static/media/BebasNeue-Regular.12e3683f9192436a7be8.ttf",
     "index.html": "/cv-app/index.html",
-    "main.5e25e039.css.map": "/cv-app/static/css/main.5e25e039.css.map",
-    "main.7bbb8956.js.map": "/cv-app/static/js/main.7bbb8956.js.map"
+    "main.f465c2ae.css.map": "/cv-app/static/css/main.f465c2ae.css.map",
+    "main.cdf470a9.js.map": "/cv-app/static/js/main.cdf470a9.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e25e039.css",
-    "static/js/main.7bbb8956.js"
+    "static/css/main.f465c2ae.css",
+    "static/js/main.cdf470a9.js"
   ]
 }
