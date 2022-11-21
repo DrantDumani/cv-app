@@ -46,3 +46,21 @@
     @include formBtn;
   }
 }
+
+@mixin sectionStyle($vertical: 5vh) {
+  padding: $vertical 2vw;
+
+  p {
+    margin: 0;
+  }
+}
+
+@mixin exp-edu-section {
+  display: flex;
+  justify-content: space-between;
+
+  .bolded-text,
+  .time-period-info {
+    font-weight: bold;
+  }
+}

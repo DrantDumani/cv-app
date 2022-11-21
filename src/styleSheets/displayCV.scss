@@ -1,9 +1,45 @@
+@use "./mixins";
+
 @font-face {
   font-family: "EBGaramond";
   src: url("../fonts/EBGaramond-VariableFont_wght.ttf") format("truetype");
 }
 
+.display-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 #cv-display {
   font-family: "EBGaramond";
+  font-size: 18px;
   width: 75vw;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section {
+  @include mixins.sectionStyle($vertical: 0vh);
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+#edit-CV {
+  width: 100%;
+  @include mixins.formBtn;
 }

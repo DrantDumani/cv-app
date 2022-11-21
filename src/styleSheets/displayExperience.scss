@@ -1,0 +1,5 @@
+@use "./mixins";
+
+.exp-section {
+  @include mixins.exp-edu-section;
+}
