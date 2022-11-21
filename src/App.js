@@ -126,6 +126,7 @@ class App extends Component {
   componentDidMount() {
     this.addEducatuon();
     this.addExperience();
+    document.title = "Curriculum Vitae Creator";
   }
 
   render() {
