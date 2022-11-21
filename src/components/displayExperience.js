@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styleSheets/displayExperience.scss";
 
 class DisplayExperience extends Component {
   constructor(props) {
@@ -8,12 +9,16 @@ class DisplayExperience extends Component {
   render() {
     const { position, employer, from, to } = this.props.exp;
     return (
-      <div>
-        <p>{position}</p>
-        <p>{employer}</p>
-        <p>
-          {from} - {to}
-        </p>
+      <div className="exp-section">
+        <div className="exp-info">
+          <p className="bolded-text position-text">{position}</p>
+          <p className="employer-text">{employer}</p>
+        </div>
+        <div className="time-period-info">
+          <p>
+            {from} - {to}
+          </p>
+        </div>
       </div>
     );
   }

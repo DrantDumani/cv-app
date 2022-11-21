@@ -14,27 +14,39 @@ class DisplayCV extends Component {
       this.props;
 
     return (
-      <div id="cv-display">
-        <DisplayPersonal personalInfo={personalInfo} />
-        <ul>
-          {experienceArr.map((el) => {
-            return (
-              <li key={el.id}>
-                <DisplayExperience exp={el} />
-              </li>
-            );
-          })}
-        </ul>
-        <ul>
-          {educationArr.map((el) => {
-            return (
-              <li key={el.id}>
-                <DisplayEducation edu={el} />
-              </li>
-            );
-          })}
-        </ul>
-        <button onClick={toggleEdit}>Edit CV</button>
+      <div className="display-content">
+        <div id="cv-display">
+          <DisplayPersonal personalInfo={personalInfo} />
+          <div className="section">
+            <p className="section-title">Experience</p>
+            <hr />
+            <ul>
+              {experienceArr.map((el) => {
+                return (
+                  <li key={el.id}>
+                    <DisplayExperience exp={el} />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="section">
+            <p className="section-title">Education</p>
+            <hr />
+            <ul>
+              {educationArr.map((el) => {
+                return (
+                  <li key={el.id}>
+                    <DisplayEducation edu={el} />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <button id="edit-CV" onClick={toggleEdit}>
+          Edit CV
+        </button>
       </div>
     );
   }
