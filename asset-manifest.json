@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/cv-app/static/css/main.f465c2ae.css",
-    "main.js": "/cv-app/static/js/main.17fabb1e.js",
+    "main.js": "/cv-app/static/js/main.98b7170e.js",
     "static/media/EBGaramond-VariableFont_wght.ttf": "/cv-app/static/media/EBGaramond-VariableFont_wght.baa0e0cf79395becf7d7.ttf",
     "static/media/Roboto-Bold.ttf": "/cv-app/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "static/media/Oswald-VariableFont_wght.ttf": "/cv-app/static/media/Oswald-VariableFont_wght.46d7853f0185f6bf0c93.ttf",
     "static/media/BebasNeue-Regular.ttf": "/cv-app/static/media/BebasNeue-Regular.12e3683f9192436a7be8.ttf",
     "index.html": "/cv-app/index.html",
     "main.f465c2ae.css.map": "/cv-app/static/css/main.f465c2ae.css.map",
-    "main.17fabb1e.js.map": "/cv-app/static/js/main.17fabb1e.js.map"
+    "main.98b7170e.js.map": "/cv-app/static/js/main.98b7170e.js.map"
   },
   "entrypoints": [
     "static/css/main.f465c2ae.css",
-    "static/js/main.17fabb1e.js"
+    "static/js/main.98b7170e.js"
   ]
 }
