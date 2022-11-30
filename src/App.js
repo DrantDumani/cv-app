@@ -1,35 +1,42 @@
 import "./styleSheets/App.scss";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Header from "./components/header";
 import CVForm from "./components/cvForm";
 import Footer from "./components/footer";
 import DisplayCV from "./components/displayCV";
 import uniqid from "uniqid";
 
-class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      personal: {
-        firstName: "",
-        lastName: "",
-        title: "",
-        phoneNum: "",
-        address: "",
-        email: "",
-        description: "",
-        fieldIds: [
-          "firstName",
-          "lastName",
-          "title",
-          "phoneNum",
-          "address",
-          "email",
-          "description",
-        ],
-      },
-      education: {
+function App() {
+  const [state, setState] = useState({
+    personal: {
+      firstName: "",
+      lastName: "",
+      title: "",
+      phoneNum: "",
+      address: "",
+      email: "",
+      description: "",
+      fieldIds: [
+        "firstName",
+        "lastName",
+        "title",
+        "phoneNum",
+        "address",
+        "email",
+        "description",
+      ],
+    },
+    education: {
+      university: "",
+      location: "",
+      degree: "",
+      from: "",
+      to: "",
+      id: uniqid(),
+      fieldIds: ["university", "location", "degree", "from", "to"],
+    },
+    educationList: [
+      {
         university: "",
         location: "",
         degree: "",
@@ -38,8 +45,18 @@ class App extends Component {
         id: uniqid(),
         fieldIds: ["university", "location", "degree", "from", "to"],
       },
-      educationList: [],
-      experience: {
+    ],
+    experience: {
+      position: "",
+      employer: "",
+      location: "",
+      from: "",
+      to: "",
+      id: uniqid(),
+      fieldIds: ["position", "employer", "location", "from", "to"],
+    },
+    experienceList: [
+      {
         position: "",
         employer: "",
         location: "",
@@ -48,122 +65,119 @@ class App extends Component {
         id: uniqid(),
         fieldIds: ["position", "employer", "location", "from", "to"],
       },
-      experienceList: [],
-      isBeingEdited: true,
-    };
-  }
+    ],
+    isBeingEdited: true,
+  });
 
-  toggleEdit = () => {
-    this.setState((prevState) => ({
-      isBeingEdited: !prevState.isBeingEdited,
-    }));
+  const toggleEdit = () => {
+    setState({ ...state, isBeingEdited: !state.isBeingEdited });
   };
 
-  addEducatuon = () => {
-    this.setState({
-      educationList: this.state.educationList.concat(this.state.education),
-      education: { ...this.state.education, id: uniqid() },
+  const addEducation = () => {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        educationList: prevState.educationList.concat(prevState.education),
+        education: { ...prevState.education, id: uniqid() },
+      };
     });
   };
 
-  addExperience = () => {
-    this.setState({
-      experienceList: this.state.experienceList.concat(this.state.experience),
-      experience: { ...this.state.experience, id: uniqid() },
+  const addExperience = () => {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        experienceList: prevState.experienceList.concat(prevState.experience),
+        experience: { ...prevState.experience, id: uniqid() },
+      };
     });
   };
 
-  delEducation = (id) => {
-    this.setState((prevState) => ({
-      educationList: prevState.educationList.filter((edu) => {
+  const delEducation = (id) => {
+    setState({
+      ...state,
+      educationList: state.educationList.filter((edu) => {
         return edu.id !== id;
       }),
-    }));
+    });
   };
 
-  delExperience = (id) => {
-    this.setState((prevState) => ({
-      experienceList: prevState.experienceList.filter((exp) => {
+  const delExperience = (id) => {
+    setState({
+      ...state,
+      experienceList: state.experienceList.filter((exp) => {
         return exp.id !== id;
       }),
-    }));
+    });
   };
 
-  onChangePersonal = (e) => {
+  const onChangePersonal = (e) => {
     const field = e.target.id;
-    this.setState((prevState) => ({
+    setState({
+      ...state,
       personal: {
-        ...prevState.personal,
+        ...state.personal,
         [field]: e.target.value,
       },
-    }));
+    });
   };
 
-  onChangeExperience = (e, id) => {
+  const onChangeExperience = (e, id) => {
     const field = e.target.id.split(id)[0];
-    this.setState((prevState) => ({
-      experienceList: prevState.experienceList.map((exp) => {
+    setState({
+      ...state,
+      experienceList: state.experienceList.map((exp) => {
         if (exp.id === id) {
           exp[field] = e.target.value;
         }
         return exp;
       }),
-    }));
+    });
   };
 
-  onChangeEducation = (e, id) => {
+  const onChangeEducation = (e, id) => {
     const field = e.target.id.split(id)[0];
-    this.setState((prevState) => ({
-      educationList: prevState.educationList.map((exp) => {
-        if (exp.id === id) {
-          exp[field] = e.target.value;
+    setState({
+      ...state,
+      educationList: state.educationList.map((edu) => {
+        if (edu.id === id) {
+          edu[field] = e.target.value;
         }
-        return exp;
+        return edu;
       }),
-    }));
+    });
   };
 
-  componentDidMount() {
-    this.addEducatuon();
-    this.addExperience();
-    document.title = "Curriculum Vitae Creator";
-  }
-
-  render() {
-    const { personal, experienceList, educationList, isBeingEdited } =
-      this.state;
-
-    return (
-      <div className="content">
-        <Header />
-        <main>
-          {isBeingEdited ? (
-            <CVForm
-              personalInfo={personal}
-              experienceArr={experienceList}
-              educationArr={educationList}
-              addExp={this.addExperience}
-              addEdu={this.addEducatuon}
-              toggleEdit={this.toggleEdit}
-              onChangePersonal={this.onChangePersonal}
-              onChangeExperience={this.onChangeExperience}
-              onChangeEducation={this.onChangeEducation}
-              delExp={this.delExperience}
-              delEdu={this.delEducation}
-            />
-          ) : (
-            <DisplayCV
-              personalInfo={personal}
-              experienceArr={experienceList}
-              educationArr={educationList}
-              toggleEdit={this.toggleEdit}
-            />
-          )}
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div className="content">
+      <Header />
+      <main>
+        {state.isBeingEdited ? (
+          <CVForm
+            personalInfo={state.personal}
+            experienceArr={state.experienceList}
+            educationArr={state.educationList}
+            addExp={addExperience}
+            addEdu={addEducation}
+            toggleEdit={toggleEdit}
+            onChangePersonal={onChangePersonal}
+            onChangeExperience={onChangeExperience}
+            onChangeEducation={onChangeEducation}
+            delExp={delExperience}
+            delEdu={delEducation}
+          />
+        ) : (
+          <DisplayCV
+            personalInfo={state.personal}
+            experienceArr={state.experienceList}
+            educationArr={state.educationList}
+            toggleEdit={toggleEdit}
+          />
+        )}
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
